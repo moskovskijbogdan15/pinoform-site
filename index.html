@@ -93,6 +93,23 @@ footer .logo__text i{color:var(--accent)}
 .hero__cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
 .hero__note{margin-top:16px;font-size:14px;color:var(--muted)}
 .hero__art{background:var(--bg-2);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:var(--shadow)}
+/* 3D-коробка в герої */
+.hero__art--3d{padding:0;overflow:hidden;background:radial-gradient(120% 95% at 50% 36%,#fff 0%,#f5f7fa 52%,#e9edf2 100%)}
+.box3d{position:relative;aspect-ratio:5/4;width:100%;touch-action:pan-y;outline:none;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+.box3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity .7s}
+.box3d__poster{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:7% 9% 9%;transition:opacity .7s}
+.box3d.is-3d{cursor:grab}
+.box3d.is-3d.dragging{cursor:grabbing}
+.box3d.is-3d canvas{opacity:1}
+.box3d.is-3d .box3d__poster{opacity:0}
+.box3d:focus-visible{box-shadow:inset 0 0 0 3px var(--accent)}
+.box3d__tag,.box3d__hint{position:absolute;opacity:0;transition:opacity .7s;pointer-events:none}
+.box3d.is-3d .box3d__tag,.box3d.is-3d .box3d__hint{opacity:1}
+.box3d__tag{top:14px;left:14px;font-size:12px;font-weight:750;letter-spacing:.05em;color:var(--accent-d);background:var(--accent-soft);border:1px solid #ffd79c;border-radius:999px;padding:3px 10px}
+.box3d__hint{left:50%;bottom:12px;transform:translateX(-50%);width:max-content;max-width:calc(100% - 24px);text-align:center;font-size:12.5px;line-height:1.35;color:var(--ink-2);background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+.hero__cap{margin:0;padding:14px 22px 16px;border-top:1px solid var(--line);background:var(--bg);font-size:13.5px;color:var(--muted)}
+.hero__cap a{color:var(--accent-d);font-weight:650;text-decoration:none;white-space:nowrap}
+.hero__cap a:hover{text-decoration:underline}
 
 /* --- полоса довіри --- */
 .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
@@ -247,6 +264,7 @@ footer a:hover{color:var(--accent)}
   .burger{display:block}
   .nav__cta .btn,.nav__phone small{display:none}
   .hero__art{order:-1}
+  .box3d{aspect-ratio:4/3}
   .mbar{
     display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:8px;
     position:fixed;left:0;right:0;bottom:0;z-index:60;
@@ -318,36 +336,17 @@ footer a:hover{color:var(--accent)}
       <p class="hero__note">Виготовлення 1–2 дні · Дзвінки щодня 8:00–20:00, без вихідних · Самовивіз із цеху в Коцюбинському</p>
     </div>
 
-    <div class="hero__art">
-      <svg viewBox="0 0 420 300" role="img" aria-label="Схема фасадного карниза в розрізі">
-        <defs>
-          <linearGradient id="foam" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e9ecf0"/>
-          </linearGradient>
-          <pattern id="wall" width="26" height="14" patternUnits="userSpaceOnUse">
-            <rect width="26" height="14" fill="#dfe3e8"/>
-            <rect width="24" height="12" x="1" y="1" fill="#eceff3"/>
-          </pattern>
-        </defs>
-        <rect x="16" y="16" width="100" height="268" fill="url(#wall)" stroke="#cdd3da"/>
-        <path d="M116 78 h210 v26 h-38 q-16 0 -16 16 v26 q0 16 -16 16 h-30 q-16 0 -16 16 v30 h-94 z"
-              fill="url(#foam)" stroke="#aeb6c0" stroke-width="2" stroke-linejoin="round"/>
-        <path d="M116 78 h210" stroke="#ff9500" stroke-width="3"/>
-        <g font-size="12" font-family="inherit" fill="#6b7280">
-          <line x1="116" y1="296" x2="326" y2="296" stroke="#9aa2ad" stroke-width="1.4"/>
-          <line x1="116" y1="290" x2="116" y2="300" stroke="#9aa2ad" stroke-width="1.4"/>
-          <line x1="326" y1="290" x2="326" y2="300" stroke="#9aa2ad" stroke-width="1.4"/>
-          <text x="221" y="292" text-anchor="middle">виліт за кресленням</text>
-          <line x1="352" y1="78" x2="352" y2="208" stroke="#9aa2ad" stroke-width="1.4"/>
-          <line x1="346" y1="78" x2="358" y2="78" stroke="#9aa2ad" stroke-width="1.4"/>
-          <line x1="346" y1="208" x2="358" y2="208" stroke="#9aa2ad" stroke-width="1.4"/>
-          <text x="364" y="147">висота</text>
-          <text x="128" y="66" fill="#e07f00" font-weight="700">профіль карниза</text>
-          <text x="30" y="44" fill="#8b929c">стіна</text>
-        </g>
-      </svg>
-      <p class="muted" style="font-size:13.5px;margin-top:14px">
-        Майже будь-яка ваша ідея в межах 2D: робимо індивідуальне креслення й ріжемо точно за ним.
+    <div class="hero__art hero__art--3d">
+      <div class="box3d" id="box3d">
+        <img class="box3d__poster" src="img/korobka-hero.webp" width="1050" height="1157"
+             alt="Коробка з пінопласту на шипах із піднятою кришкою" decoding="async" fetchpriority="high">
+        <canvas aria-hidden="true"></canvas>
+        <span class="box3d__tag" aria-hidden="true">3D</span>
+        <span class="box3d__hint" aria-hidden="true">Тягніть мишкою — покрутиться · клік — кришка відкриється</span>
+      </div>
+      <p class="hero__cap">
+        Коробка на шипах 400×350×285 мм, стінка 50 мм. Інший розмір або ваша ідея в межах 2D —
+        зробимо креслення й виріжемо точно за ним. <a href="korobky/">Усе про коробки →</a>
       </p>
     </div>
   </div>
@@ -1075,6 +1074,36 @@ form.addEventListener("submit", async e => {
     offerMessengers(text);   // сервер форм не відповів — заявка все одно не губиться
   }
 });
+</script>
+
+<script>
+/* 3D-коробка: three.js вантажимо вже після сторінки і лише якщо браузер вміє WebGL */
+(function () {
+  var host = document.getElementById("box3d");
+  if (!host) return;
+  var c = navigator.connection;
+  if (c && c.saveData) return;
+  try {
+    var t = document.createElement("canvas");
+    var gl = window.WebGLRenderingContext && (t.getContext("webgl") || t.getContext("experimental-webgl"));
+    if (!gl) return;
+    var lose = gl.getExtension("WEBGL_lose_context");
+    if (lose) lose.loseContext();
+  } catch (e) { return; }
+  function add(src, sri) {
+    var s = document.createElement("script");
+    s.src = src; s.async = false;
+    if (sri) { s.integrity = sri; s.crossOrigin = "anonymous"; }
+    document.head.appendChild(s);
+  }
+  function go() {
+    add("https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js",
+        "sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==");
+    add("js/box3d.js?v=3");
+  }
+  if (document.readyState === "complete") setTimeout(go, 60);
+  else window.addEventListener("load", function () { setTimeout(go, 60); });
+})();
 </script>
 
 </body>
