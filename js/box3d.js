@@ -162,7 +162,7 @@ window.pfBox3d = function () {
     if (!w || !h) return;
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
-    dist = baseDist * Math.max(1, 0.8 / camera.aspect);   // вузький екран — трохи відсуваємо камеру
+    dist = baseDist * Math.max(1, 0.8 / camera.aspect) * (camera.aspect > 1.3 ? 1.06 : 1);   // телефон/вузький екран — трохи відсуваємо камеру
     camera.updateProjectionMatrix();
   }
   if (window.ResizeObserver) new ResizeObserver(resize).observe(host);
@@ -209,7 +209,7 @@ window.pfBox3d = function () {
 
   var hint = host.querySelector(".box3d__hint");
   if (hint && window.matchMedia && window.matchMedia("(pointer: coarse)").matches)
-    hint.textContent = "Проведіть пальцем — покрутиться · торкніться — кришка відкриється";
+    hint.textContent = "Крутіть пальцем · торкніться — кришка";
 
   var visible = true, running = false, last = performance.now(), shown = false;
   function frame(now) {
