@@ -25,8 +25,8 @@ window.pfBox3d = function () {
   var camera = new T.PerspectiveCamera(26, 1, 10, 10000);
 
   // світло: м'яке небо + основне зліва-згори з тінню + слабке заповнення справа
-  scene.add(new T.HemisphereLight(0xffffff, 0xd3d9e1, 0.92));
-  var key = new T.DirectionalLight(0xffffff, 0.6);
+  scene.add(new T.HemisphereLight(0xffffff, 0xe4e7eb, 0.72));
+  var key = new T.DirectionalLight(0xffffff, 0.38);
   key.position.set(-560, 1000, 700);
   key.castShadow = true;
   key.shadow.mapSize.set(1024, 1024);
@@ -35,11 +35,11 @@ window.pfBox3d = function () {
   key.shadow.bias = -0.0005;
   key.shadow.radius = 3;
   scene.add(key);
-  var fill = new T.DirectionalLight(0xffffff, 0.2);
+  var fill = new T.DirectionalLight(0xffffff, 0.11);
   fill.position.set(800, 300, -300);
   scene.add(fill);
 
-  var ground = new T.Mesh(new T.PlaneGeometry(6000, 6000), new T.ShadowMaterial({ opacity: 0.1 }));
+  var ground = new T.Mesh(new T.PlaneGeometry(6000, 6000), new T.ShadowMaterial({ opacity: 0.09 }));
   ground.rotation.x = -Math.PI / 2;
   ground.receiveShadow = true;
   scene.add(ground);
@@ -102,7 +102,7 @@ window.pfBox3d = function () {
   }
   // ледь різні відтінки деталей — як на справжніх коробках, де стінки з різних смуг блока
   var tint = { 1: 0xf1f3f6, 2: 0xfbfcfd, 3: 0xffffff, 4: 0xffffff, 5: 0xf8f9fb, 6: 0xf8f9fb };
-  var lineMat = new T.LineBasicMaterial({ color: 0x7d8796, transparent: true, opacity: 0.9 });
+  var lineMat = new T.LineBasicMaterial({ color: 0x8b95a3, transparent: true, opacity: 0.9 });
   function build(part) {
     var g = new T.Group();
     Object.keys(part.parts).forEach(function (pid) {
@@ -150,8 +150,8 @@ window.pfBox3d = function () {
   scene.add(root);
 
   var LIFT = Math.round(H * 0.6);
-  var target = new T.Vector3(0, H * 0.66, 0);
-  var yaw = -0.62, pitch = 0.5, baseDist = 1560, dist = baseDist;
+  var target = new T.Vector3(0, H * 0.6, 0);
+  var yaw = -0.62, pitch = 0.5, baseDist = 1980, dist = baseDist;
   var spin = 0, vel = 0, lidVel = 0;
   var lidPos = LIFT, lidTarget = LIFT;   // стартуємо з піднятою кришкою — як на картинці-заставці
   var t0 = performance.now(), lastUser = -1e9, autoLidAt = t0 + 2600;
@@ -162,7 +162,7 @@ window.pfBox3d = function () {
     if (!w || !h) return;
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
-    dist = baseDist * Math.max(1, 1 / camera.aspect);
+    dist = baseDist * Math.max(1, 0.8 / camera.aspect);   // вузький екран — трохи відсуваємо камеру
     camera.updateProjectionMatrix();
   }
   if (window.ResizeObserver) new ResizeObserver(resize).observe(host);
