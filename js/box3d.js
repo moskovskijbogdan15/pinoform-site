@@ -151,7 +151,7 @@ window.pfBox3d = function () {
 
   var LIFT = Math.round(H * 0.6);
   var target = new T.Vector3(0, H * 0.6, 0);
-  var yaw = -0.62, pitch = 0.5, baseDist = 1980, dist = baseDist;
+  var yaw = -0.62, pitch = 0.5, baseDist = 1860, dist = baseDist;
   var spin = 0, vel = 0, lidVel = 0;
   var lidPos = LIFT, lidTarget = LIFT;   // стартуємо з піднятою кришкою — як на картинці-заставці
   var t0 = performance.now(), lastUser = -1e9, autoLidAt = t0 + 2600;
