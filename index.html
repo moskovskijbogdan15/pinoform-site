@@ -340,12 +340,12 @@ footer a:hover{color:var(--accent)}
     </div>
 
     <div class="hero__art hero__art--3d">
-      <div class="box3d" id="box3d">
+      <div class="box3d" id="box3d" data-scene="box">
         <img class="box3d__poster" src="img/korobka-hero-420.webp" srcset="img/korobka-hero-420.webp 420w, img/korobka-hero-700.webp 700w" sizes="(max-width: 920px) 57vw, 320px" width="700" height="771"
              alt="Коробка з пінопласту на шипах із піднятою кришкою" decoding="async" fetchpriority="high">
         <canvas aria-hidden="true"></canvas>
         <span class="box3d__tag" aria-hidden="true">3D</span>
-        <span class="box3d__hint" aria-hidden="true">Тягніть мишкою — покрутиться · клік — кришка відкриється</span>
+        <span class="box3d__hint" aria-hidden="true">Тягніть мишкою — покрутиться · клік — розібрати / зібрати</span>
       </div>
       <p class="hero__cap">
         Коробка на шипах 400×350×285 мм, стінка 50 мм. Інший розмір або ваша ідея в межах 2D —
@@ -1108,7 +1108,7 @@ form.addEventListener("submit", async e => {
   function go() {
     add("https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js",
         "sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==");
-    add("js/box3d.js?v=5");
+    add("js/pf3d.js?v=2");
   }
   function later() {
     if (window.requestIdleCallback) requestIdleCallback(go, { timeout: 3000 });
