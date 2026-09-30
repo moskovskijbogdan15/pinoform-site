@@ -20,7 +20,7 @@
 
 <style>
 :root{
-  --ink:#14161a; --ink-2:#2b3038; --muted:#6b7280; --line:#e4e7ec;
+  --ink:#14161a; --ink-2:#2b3038; --muted:#5f6673; --accent-t:#a85400; --line:#e4e7ec;
   --bg:#ffffff; --bg-2:#f6f7f9; --bg-3:#eef0f3;
   --accent:#ff9500; --accent-d:#e07f00; --accent-soft:#fff4e2;
   --ok:#1d8a5a;
@@ -45,7 +45,7 @@ p{margin:0}
 .muted{color:var(--muted)}
 .sec{padding:clamp(52px,7vw,88px) 0}
 .sec--alt{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-d);margin-bottom:12px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-t);margin-bottom:12px}
 .lead{font-size:clamp(16px,2vw,19px);color:var(--ink-2)}
 
 /* --- кнопки --- */
@@ -58,12 +58,12 @@ p{margin:0}
 }
 .btn:active{transform:translateY(1px)}
 .btn--primary{background:var(--accent);color:#1a1205;border-color:var(--accent)}
-.btn--primary:hover{background:var(--accent-d);border-color:var(--accent-d)}
+.btn--primary:hover{background:var(--accent-d);border-color:var(--accent-t)}
 .btn--ghost{background:transparent;color:var(--ink);border-color:var(--line)}
 .btn--ghost:hover{border-color:var(--ink);background:var(--bg-2)}
-.btn--tg{background:#1d84bd;color:#fff;border-color:#1d84bd}
+.btn--tg{background:#1a78ad;color:#fff;border-color:#1a78ad}
 .btn--tg:hover{background:#176d9c;border-color:#176d9c}
-.btn--viber{background:#7360f2;color:#fff;border-color:#7360f2}
+.btn--viber{background:#6a55e6;color:#fff;border-color:#6a55e6}
 .btn--viber:hover{background:#5d49d9;border-color:#5d49d9}
 .btn--lg{padding:16px 30px;font-size:17px}
 .btn--sm{padding:11px 16px;font-size:15px}
@@ -73,12 +73,12 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.93);backdro
 .nav{display:flex;align-items:center;gap:26px;height:68px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:19px;letter-spacing:-.02em}
 .logo__svg{width:35px;height:40px;flex:0 0 auto}
-.logo__text i{font-style:normal;color:var(--accent-d)}
+.logo__text i{font-style:normal;color:var(--accent-t)}
 .logo small{display:block;font-size:11px;font-weight:500;color:var(--muted);letter-spacing:0}
 footer .logo__text i{color:var(--accent)}
 .nav__links{display:flex;gap:22px;margin-left:auto}
 .nav__links a{text-decoration:none;font-size:15px;color:var(--ink-2);font-weight:550}
-.nav__links a:hover{color:var(--accent-d)}
+.nav__links a:hover{color:var(--accent-t)}
 .nav__cta{display:flex;align-items:center;gap:14px}
 .nav__phone{text-decoration:none;font-weight:700;font-size:16px;white-space:nowrap;line-height:1.25;text-align:right}
 .nav__phone small{display:block;font-size:11.5px;font-weight:500;color:var(--muted)}
@@ -97,7 +97,7 @@ footer .logo__text i{color:var(--accent)}
 .hero__art--3d{padding:0;overflow:hidden;background:radial-gradient(120% 95% at 50% 36%,#fff 0%,#f5f7fa 52%,#e9edf2 100%)}
 .box3d{position:relative;aspect-ratio:5/4;width:100%;touch-action:pan-y;outline:none;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
 .box3d canvas{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity .7s}
-.box3d__poster{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:7% 9% 9%;transition:opacity .7s}
+.box3d__poster{position:absolute;left:50%;top:7%;height:84%;width:auto;max-width:none;transform:translateX(-50%);transition:opacity .7s}
 .box3d.is-3d{cursor:grab}
 .box3d.is-3d.dragging{cursor:grabbing}
 .box3d.is-3d canvas{opacity:1}
@@ -105,10 +105,10 @@ footer .logo__text i{color:var(--accent)}
 .box3d:focus-visible{box-shadow:inset 0 0 0 3px var(--accent)}
 .box3d__tag,.box3d__hint{position:absolute;opacity:0;transition:opacity .7s;pointer-events:none}
 .box3d.is-3d .box3d__tag,.box3d.is-3d .box3d__hint{opacity:1}
-.box3d__tag{top:14px;left:14px;font-size:12px;font-weight:750;letter-spacing:.05em;color:var(--accent-d);background:var(--accent-soft);border:1px solid #ffd79c;border-radius:999px;padding:3px 10px}
+.box3d__tag{top:14px;left:14px;font-size:12px;font-weight:750;letter-spacing:.05em;color:var(--accent-t);background:var(--accent-soft);border:1px solid #ffd79c;border-radius:999px;padding:3px 10px}
 .box3d__hint{left:50%;bottom:12px;transform:translateX(-50%);width:max-content;max-width:calc(100% - 24px);text-align:center;font-size:12.5px;line-height:1.35;color:var(--ink-2);background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:999px;padding:5px 12px}
 .hero__cap{margin:0;padding:14px 22px 16px;border-top:1px solid var(--line);background:var(--bg);font-size:13.5px;color:var(--muted)}
-.hero__cap a{color:var(--accent-d);font-weight:650;text-decoration:none;white-space:nowrap}
+.hero__cap a{color:var(--accent-t);font-weight:650;text-decoration:none;white-space:nowrap}
 .hero__cap a:hover{text-decoration:underline}
 
 /* --- полоса довіри --- */
@@ -125,7 +125,7 @@ footer .logo__text i{color:var(--accent)}
 .card__body{padding:20px;display:flex;flex-direction:column;gap:9px;flex:1}
 .card__body ul{margin:2px 0 0;padding-left:18px;color:var(--ink-2);font-size:14.5px}
 .card__body li{margin:3px 0}
-.card__price{margin-top:auto;padding-top:12px;font-weight:700;color:var(--accent-d);font-size:15px}
+.card__price{margin-top:auto;padding-top:12px;font-weight:700;color:var(--accent-t);font-size:15px}
 .card__art--img{padding:0;height:210px;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .card__art--img img{width:100%;height:100%;object-fit:cover}
 .card__art--draw{background:#21262e}
@@ -214,7 +214,7 @@ td b{font-weight:750}
 .faq details{border-bottom:1px solid var(--line)}
 .faq summary{list-style:none;cursor:pointer;padding:18px 40px 18px 0;font-weight:650;font-size:16.5px;position:relative}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";position:absolute;right:4px;top:13px;font-size:26px;font-weight:400;color:var(--accent-d);transition:transform .2s}
+.faq summary::after{content:"+";position:absolute;right:4px;top:13px;font-size:26px;font-weight:400;color:var(--accent-t);transition:transform .2s}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq details p{padding:0 0 20px;color:var(--ink-2);max-width:78ch}
 
@@ -239,13 +239,15 @@ textarea{resize:vertical;min-height:92px}
 .contact__row:last-of-type{border-bottom:none}
 .contact__row b{display:block;font-size:13px;color:var(--muted);font-weight:600;margin-bottom:2px}
 .contact__row a{font-weight:700;text-decoration:none;font-size:17px}
-.contact__row a:hover{color:var(--accent-d)}
+.contact__row a:hover{color:var(--accent-t)}
 .contact__row .val{font-weight:600}
 .contact__btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
 
 /* --- підвал --- */
 footer{background:var(--ink);color:#c7ccd4;padding:44px 0 30px;font-size:14.5px}
 footer a{color:#fff;text-decoration:none}
+footer .logo__text i{color:var(--accent)}
+.foot p a{display:inline-block;padding:3px 0}
 footer a:hover{color:var(--accent)}
 .foot{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap}
 .foot__bottom{margin-top:28px;padding-top:20px;border-top:1px solid #2a2e36;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:#8b929c}
@@ -339,7 +341,7 @@ footer a:hover{color:var(--accent)}
 
     <div class="hero__art hero__art--3d">
       <div class="box3d" id="box3d">
-        <img class="box3d__poster" src="img/korobka-hero.webp" width="1050" height="1157"
+        <img class="box3d__poster" src="img/korobka-hero-420.webp" srcset="img/korobka-hero-420.webp 420w, img/korobka-hero-700.webp 700w" sizes="(max-width: 920px) 57vw, 320px" width="700" height="771"
              alt="Коробка з пінопласту на шипах із піднятою кришкою" decoding="async" fetchpriority="high">
         <canvas aria-hidden="true"></canvas>
         <span class="box3d__tag" aria-hidden="true">3D</span>
@@ -378,7 +380,7 @@ footer a:hover{color:var(--accent)}
 
       <article class="card">
         <div class="card__art card__art--img card__art--render">
-          <img src="img/karnyz-3d.jpg" width="842" height="849" loading="lazy"
+          <img src="img/karnyz-3d-420.webp" srcset="img/karnyz-3d-420.webp 420w, img/karnyz-3d-640.webp 640w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 920px) calc(50vw - 30px), 360px" width="640" height="645" loading="lazy"
                alt="3D-модель фасадного профілю з розмірами: висота 578 мм, виліт 280 мм">
         </div>
         <div class="card__body">
@@ -399,7 +401,7 @@ footer a:hover{color:var(--accent)}
           <svg viewBox="0 0 300 150" role="img" aria-label="Клиноподібна плита розуклонки">
             <path d="M30 110 h240 l-240 -46 z" fill="#fff" stroke="#aeb6c0" stroke-width="2" stroke-linejoin="round"/>
             <path d="M30 110 h240" stroke="#ff9500" stroke-width="3"/>
-            <g font-size="11" fill="#6b7280">
+            <g font-size="11" fill="#5f6673">
               <text x="238" y="104">1,7%</text>
               <text x="36" y="58">ухил</text>
             </g>
@@ -419,7 +421,7 @@ footer a:hover{color:var(--accent)}
 
       <article class="card">
         <div class="card__art card__art--img">
-          <img src="img/shkaralupa-foto.jpg" width="900" height="600" loading="lazy"
+          <img src="img/shkaralupa-foto-480.webp" srcset="img/shkaralupa-foto-480.webp 480w, img/shkaralupa-foto-900.webp 900w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 920px) calc(50vw - 30px), 360px" width="900" height="600" loading="lazy"
                alt="Шкаралупа з пінопласту трьох діаметрів із замком-пазом — наша робота">
         </div>
         <div class="card__body">
@@ -454,7 +456,7 @@ footer a:hover{color:var(--accent)}
 
       <article class="card">
         <div class="card__art card__art--img card__art--draw">
-          <img src="img/figury-chastyny.jpg" width="900" height="496" loading="lazy"
+          <img src="img/figury-chastyny-480.webp" srcset="img/figury-chastyny-480.webp 480w, img/figury-chastyny-900.webp 900w" sizes="(max-width: 560px) calc(100vw - 40px), (max-width: 920px) calc(50vw - 30px), 360px" width="900" height="496" loading="lazy"
                alt="Декоративна фігура, розбита на 22 деталі для різання з блока">
         </div>
         <div class="card__body">
@@ -645,12 +647,12 @@ footer a:hover{color:var(--accent)}
       </div>
       <div class="gallery">
         <figure>
-          <img src="img/rozkriy-smuhy.jpg" width="860" height="589" loading="lazy"
+          <img src="img/rozkriy-smuhy-480.webp" srcset="img/rozkriy-smuhy-480.webp 480w, img/rozkriy-smuhy-860.webp 860w" sizes="(max-width: 920px) calc(100vw - 40px), 540px" width="860" height="589" loading="lazy"
                alt="Креслення розкрою блока пінопласту на смуги в AutoCAD">
           <figcaption>Блок, розкладений на смуги: кожна лінія — один різ</figcaption>
         </figure>
         <figure>
-          <img src="img/shkaralupa-rozkladka.jpg" width="472" height="450" loading="lazy"
+          <img src="img/shkaralupa-rozkladka-472.webp" width="472" height="450" loading="lazy"
                alt="Розкладка половинок шкаралупи на блоці в AutoCAD">
           <figcaption>Половинки шкаралупи, вкладені одна в одну</figcaption>
         </figure>
@@ -1078,18 +1080,24 @@ form.addEventListener("submit", async e => {
 </script>
 
 <script>
-/* 3D-коробка: three.js вантажимо вже після сторінки і лише якщо браузер вміє WebGL */
+/* 3D-коробка: three.js вантажимо, коли сторінка вже завантажилась і браузер вільний,
+   і лише якщо є справжня відеокарта. Без неї (програмний WebGL) 3D дуже вантажить процесор —
+   тоді лишається звичайна картинка. */
 (function () {
   var host = document.getElementById("box3d");
   if (!host) return;
   var c = navigator.connection;
-  if (c && c.saveData) return;
+  if (c && (c.saveData || /2g/.test(c.effectiveType || ""))) return;
+  if (navigator.deviceMemory && navigator.deviceMemory < 2) return;
   try {
-    var t = document.createElement("canvas");
-    var gl = window.WebGLRenderingContext && (t.getContext("webgl") || t.getContext("experimental-webgl"));
+    var t = document.createElement("canvas"), o = { failIfMajorPerformanceCaveat: true };
+    var gl = window.WebGLRenderingContext && (t.getContext("webgl", o) || t.getContext("experimental-webgl", o));
     if (!gl) return;
+    var info = gl.getExtension("WEBGL_debug_renderer_info");
+    var name = info ? String(gl.getParameter(info.UNMASKED_RENDERER_WEBGL)) : "";
     var lose = gl.getExtension("WEBGL_lose_context");
     if (lose) lose.loseContext();
+    if (/swiftshader|llvmpipe|softpipe|software|basic render/i.test(name)) return;
   } catch (e) { return; }
   function add(src, sri) {
     var s = document.createElement("script");
@@ -1100,10 +1108,14 @@ form.addEventListener("submit", async e => {
   function go() {
     add("https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js",
         "sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==");
-    add("js/box3d.js?v=4");
+    add("js/box3d.js?v=5");
   }
-  if (document.readyState === "complete") setTimeout(go, 60);
-  else window.addEventListener("load", function () { setTimeout(go, 60); });
+  function later() {
+    if (window.requestIdleCallback) requestIdleCallback(go, { timeout: 3000 });
+    else setTimeout(go, 800);
+  }
+  if (document.readyState === "complete") later();
+  else window.addEventListener("load", later);
 })();
 </script>
 
