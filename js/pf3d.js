@@ -218,7 +218,7 @@ window.pf3d = function () {
   // ---------- сцена 2: шкаралупа закривається на трубі ----------
   function pipeScene(beads) {
     var RP = 50, RI = 51, RO = 101, LS = 500, LP = 900, YC = 240;   // труба Ø100, стінка 50 мм
-    var TT = RO - RI, W = 0.42 * TT, DEP = 0.28 * TT;               // замок: шип посередині стінки
+    var TT = RO - RI, W = 0.44 * TT, DEP = 0.34 * TT;               // замок: шип посередині стінки
     var A0 = RI + (TT - W) / 2, A1 = A0 + W;
     // переріз половинки: півкільце, зліва на різі шип униз, справа такий самий паз
     var s = new T.Shape();
@@ -258,7 +258,7 @@ window.pf3d = function () {
     var pg = new T.ExtrudeGeometry(ring, { depth: LP, bevelEnabled: false, curveSegments: 48 });
     pg.translate(0, 0, -LP / 2);
     pg.rotateY(Math.PI / 2);
-    var pipe = new T.Mesh(pg, new T.MeshStandardMaterial({ color: 0xa9b1ba, metalness: 0.3, roughness: 0.38 }));
+    var pipe = new T.Mesh(pg, new T.MeshStandardMaterial({ color: 0xbcc3cb, metalness: 0.18, roughness: 0.42 }));
     pipe.position.y = YC;
     pipe.castShadow = true; pipe.receiveShadow = true;
     root.add(pipe);
