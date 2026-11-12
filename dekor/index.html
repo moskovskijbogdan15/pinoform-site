@@ -293,6 +293,14 @@ footer a:hover{color:var(--accent)}
 .art--facade svg{display:block;width:100%;height:auto}.pill{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);border-radius:99px;padding:3px 10px 3px 8px;font-size:12.5px;font-weight:700;color:var(--ink);white-space:nowrap;box-shadow:0 1px 3px rgba(20,22,26,.1);text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .15s}.pill:hover{transform:translate(-50%,-50%) scale(1.06);box-shadow:0 3px 10px rgba(20,22,26,.18)}.pill:focus-visible{outline:2px solid var(--accent);outline-offset:2px}.pill::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);flex:0 0 auto}.cards--4{grid-template-columns:repeat(4,1fr)}.card__art--prof{padding:14px 18px;display:flex;justify-content:center}.card__art--prof svg{width:100%;max-width:190px;height:auto;display:block}#yak-pratsiuiemo figure img{width:100%;height:auto;display:block;background:#cdcfca}@media(max-width:1020px){.cards--4{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.cards--4{grid-template-columns:1fr}.pill{font-size:11px;padding:2px 8px 2px 6px}.pill--opt{display:none}}
 .card:target{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft),0 8px 24px rgba(20,22,26,.12);animation:pf-flash 1.6s ease-out}@keyframes pf-flash{0%{box-shadow:0 0 0 8px rgba(255,149,0,.45)}100%{box-shadow:0 0 0 3px var(--accent-soft),0 8px 24px rgba(20,22,26,.12)}}
 </style>
+<!-- Google tag (gtag.js): Google Ads AW-18565821215 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18565821215"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18565821215');
+</script>
 </head>
 <body>
 
@@ -708,6 +716,21 @@ form.addEventListener("submit", async e => {
     offerMessengers(text);   // сервер форм не відповів — заявка все одно не губиться
   }
 });
+</script>
+<script>
+/* Google Ads: считаем обращения — звонок, Viber, Telegram, отправка заявки */
+(function () {
+  var SEND_TO = 'AW-18565821215/BzwjCK6MgLcdEJ_m75RF';
+  var last = 0;
+  document.addEventListener('click', function (e) {
+    var el = e.target && e.target.closest ? e.target.closest('a[href^="tel:"], a[href^="viber:"], a[href*="t.me/"], #sendViber, #sendTg, #copyBtn') : null;
+    if (!el || typeof gtag !== 'function') return;
+    var now = Date.now();
+    if (now - last < 2000) return;
+    last = now;
+    gtag('event', 'conversion', { send_to: SEND_TO, value: 1.0, currency: 'UAH' });
+  }, true);
+})();
 </script>
 </body>
 </html>
