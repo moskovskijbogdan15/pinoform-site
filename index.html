@@ -285,6 +285,14 @@ footer a:hover{color:var(--accent)}
   .contact__btns{grid-template-columns:1fr 1fr}
 }
 </style>
+<!-- Google tag (gtag.js): Google Ads AW-18565821215 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18565821215"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18565821215');
+</script>
 </head>
 <body>
 
@@ -1119,5 +1127,20 @@ form.addEventListener("submit", async e => {
 })();
 </script>
 
+<script>
+/* Google Ads: считаем обращения — звонок, Viber, Telegram, отправка заявки */
+(function () {
+  var SEND_TO = 'AW-18565821215/BzwjCK6MgLcdEJ_m75RF';
+  var last = 0;
+  document.addEventListener('click', function (e) {
+    var el = e.target && e.target.closest ? e.target.closest('a[href^="tel:"], a[href^="viber:"], a[href*="t.me/"], #sendViber, #sendTg, #copyBtn') : null;
+    if (!el || typeof gtag !== 'function') return;
+    var now = Date.now();
+    if (now - last < 2000) return;
+    last = now;
+    gtag('event', 'conversion', { send_to: SEND_TO, value: 1.0, currency: 'UAH' });
+  }, true);
+})();
+</script>
 </body>
 </html>
