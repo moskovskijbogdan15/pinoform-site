@@ -312,6 +312,14 @@ footer a:hover{color:var(--accent)}
 .art{position:relative}.art img{display:block;width:100%;height:auto}.callout{position:absolute;display:flex;align-items:center;transform:translate(-5px,-50%);color:var(--accent-t);font-weight:750;font-size:14px;line-height:1.2;pointer-events:none;white-space:nowrap}.callout::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px #fff;flex:0 0 auto}.callout i{display:block;width:24px;height:2px;background:var(--accent);margin:0 8px 0 0}
 .lineup{margin-top:28px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 14px;overflow-x:auto}.lineup svg{display:block;width:100%;min-width:660px;height:auto}#nasha-robota .gallery{grid-template-columns:1fr 1fr}#nasha-robota .gallery img{height:240px}.use h3{font-size:17px}
 </style>
+<!-- Google tag (gtag.js): Google Ads AW-18565821215 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18565821215"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18565821215');
+</script>
 </head>
 <body>
 
@@ -819,5 +827,20 @@ form.addEventListener("submit", async e => {
 })();
 </script>
 
+<script>
+/* Google Ads: считаем обращения — звонок, Viber, Telegram, отправка заявки */
+(function () {
+  var SEND_TO = 'AW-18565821215/BzwjCK6MgLcdEJ_m75RF';
+  var last = 0;
+  document.addEventListener('click', function (e) {
+    var el = e.target && e.target.closest ? e.target.closest('a[href^="tel:"], a[href^="viber:"], a[href*="t.me/"], #sendViber, #sendTg, #copyBtn') : null;
+    if (!el || typeof gtag !== 'function') return;
+    var now = Date.now();
+    if (now - last < 2000) return;
+    last = now;
+    gtag('event', 'conversion', { send_to: SEND_TO, value: 1.0, currency: 'UAH' });
+  }, true);
+})();
+</script>
 </body>
 </html>
